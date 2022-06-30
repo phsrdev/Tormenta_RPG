@@ -4,7 +4,7 @@ def mostraatributo():
         f'No momento seus atributos são:\nForça: {forca}\nDestreza: {destreza}\nConstituição: {constituicao}\nInteligencia: {inteligencia}\nSabedoria: {sabedoria}\nCarisma: {carisma} ')
 
 
-def criandoatributos():
+def criandoatributos(dict):
     o = True
     while o == True or pontos == 0:
         print('Para Mostrar atributos(M), Pontos(P), Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(C), Sair(Q)')
