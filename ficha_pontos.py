@@ -2,6 +2,13 @@
 from atributos import mostraatributo
 from atributos import criandoatributos
 from funcoes import continuar
+forca = 10
+destreza = 10
+constituicao = 10
+inteligencia = 10
+sabedoria = 10
+carisma = 10
+pontos = 20
 
 
 print('Olá, estou aqui para te ajudar a criar sua ficha Tormenta 20.')

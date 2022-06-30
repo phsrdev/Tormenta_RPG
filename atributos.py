@@ -1,11 +1,3 @@
-forca = 10
-destreza = 10
-constituicao = 10
-inteligencia = 10
-sabedoria = 10
-carisma = 10
-pontos = 20
-
 
 def mostraatributo():
     return print(
@@ -67,7 +59,7 @@ def aumentoatributo(atr, pontos):
     while True:
         if atr < 14:
             atr += 1
-            print(f'Sua Força agora é {atr}')
+            print(f'Aumentou para {atr}')
             pontos -= 1
             print(f'Você ainda possui {pontos}')
             op = input('Deseja continuar? S/N ').strip().upper()
@@ -77,7 +69,7 @@ def aumentoatributo(atr, pontos):
                 return aumentoatributo(atr, pontos)
         elif 14 <= atr < 16:
             atr += 1
-            print(f'Sua Força agora é {atr}')
+            print(f'Aumentou para {atr}')
             pontos -= 2
             print(f'Você ainda possui {pontos}')
             op = input('Deseja continuar? S/N ').strip().upper()
@@ -87,7 +79,7 @@ def aumentoatributo(atr, pontos):
                 return aumentoatributo(atr, pontos)
         elif 16 <= atr < 18:
             atr += 1
-            print(f'Sua Força agora é {atr}')
+            print(f'Aumentou para {atr}')
             pontos -= 3
             print(f'Você ainda possui {pontos}')
             op = input('Deseja continuar? S/N ').strip().upper()
