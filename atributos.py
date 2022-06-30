@@ -1,46 +1,45 @@
-
-def mostraatributo():
+def mostra_atributo(nome, valor):
     return print(
-        f'No momento seus atributos são:\nForça: {forca}\nDestreza: {destreza}\nConstituição: {constituicao}\nInteligencia: {inteligencia}\nSabedoria: {sabedoria}\nCarisma: {carisma} ')
+        f'No momento seus atributos são:\n{nome[0]}: {valor[0]}\n{nome[1]}: {valor[1]}\n{nome[2]}: {valor[2]}\n{nome[3]}: {valor[3]}\n{nome[4]}: {valor[4]}\n{nome[5]}: {valor[5]}')
 
 
-def criandoatributos(dict):
+def criando_atributos(nome, valor):
     o = True
-    while o == True or pontos == 0:
-        print('Para Mostrar atributos(M), Pontos(P), Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(C), Sair(Q)')
+    while o == True or valor[6] > 0:
+        print(
+            'Para Mostrar atributos(M), Pontos(P), Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(C), Sair(Q)')
         x = input('Qual atributo você deseja modificar? ').strip().upper()
         if x == 'F':
-            print(f'No momento sua Força esta em {forca} deseja aumentar?')
-            aumentoatributo(forca, pontos)
+            print(f'No momento sua {nome[0]} esta em {valor[0]} deseja aumentar?')
         elif x == 'D':
-            print(f'No momento sua Destreza esta em {destreza} deseja aumentar?')
+            print(f'No momento sua {nome[1]} esta em {valor[1]} deseja aumentar?')
         elif x == 'C':
-            print(f'No momento sua Constituição esta em {constituicao} deseja aumentar?')
+            print(f'No momento sua {nome[2]} esta em {valor[2]} deseja aumentar?')
         elif x == 'I':
-            print(f'No momento sua Inteligencia esta em {inteligencia} deseja aumentar?')
+            print(f'No momento sua {nome[3]} esta em {valor[3]} deseja aumentar?')
         elif x == 'S':
-            print(f'No momento sua Sabedoria esta em {sabedoria} deseja aumentar?')
-        elif x == 'C':
-            print(f'No momento sua Carisma esta em {carisma} deseja aumentar?')
+            print(f'No momento sua {nome[4]} esta em {valor[4]} deseja aumentar?')
+        elif x == 'CA':
+            print(f'No momento sua {nome[5]} esta em {valor[5]} deseja aumentar?')
         elif x == 'P':
-            print(f'No momento você possui {pontos} pontos qual atributo deseja modificar?')
+            print(f'No momento você possui {valor[6]} {nome[6]} qual atributo deseja modificar?')
             print('Para Pontos(P), Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(C)')
             x = input('Qual atributo você deseja modificar? ').strip().upper()
         elif x == 'M':
-            mostraatributo()
+            mostraatributo(nome, valor)
         elif x == 'Q':
             return o == False
-        elif x not in 'F' or 'D' or 'C' or 'I' or 'S' or 'C':
+        elif x not in 'F' or 'D' or 'C' or 'I' or 'S' or 'CA':
             print('Para Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(C)')
             x = input('Qual atributo você deseja modificar? ').strip().upper()
 
 
-def continuaraumento(esc=False):
+def continuar_aumento(esc=False):
     while esc is not True:
         escolha = input('Deseja continuar? (S/N) ').strip().upper()
         if escolha == 'S':
             print('Continuando...')
-            return aumentoatributo()
+            return
         elif escolha == 'N':
             print('Encerrando...')
             return True
@@ -49,44 +48,12 @@ def continuaraumento(esc=False):
             escolha = input('Deseja continuar? (S/N)').strip().upper()
             if escolha == 'S':
                 print('Continuando...')
-                return aumentoatributo()
+                return
             elif escolha == 'N':
                 print('Encerrando...')
                 return True
 
 
-def aumentoatributo(atr, pontos):
-    while True:
-        if atr < 14:
-            atr += 1
-            print(f'Aumentou para {atr}')
-            pontos -= 1
-            print(f'Você ainda possui {pontos}')
-            op = input('Deseja continuar? S/N ').strip().upper()
-            if op == 'N':
-                return False
-            elif op == 'S':
-                return aumentoatributo(atr, pontos)
-        elif 14 <= atr < 16:
-            atr += 1
-            print(f'Aumentou para {atr}')
-            pontos -= 2
-            print(f'Você ainda possui {pontos}')
-            op = input('Deseja continuar? S/N ').strip().upper()
-            if op == 'N':
-                return False
-            elif op == 'S':
-                return aumentoatributo(atr, pontos)
-        elif 16 <= atr < 18:
-            atr += 1
-            print(f'Aumentou para {atr}')
-            pontos -= 3
-            print(f'Você ainda possui {pontos}')
-            op = input('Deseja continuar? S/N ').strip().upper()
-            if op == 'N':
-                return False
-            elif op == 'S':
-                return aumentoatributo(atr, pontos)
-        elif atr >= 18:
-            print(f'Você chegou no valor maximo para {atr}')
-            return atr and print(atr)
+def aumenta_atributo(atributo, index, index_pontos):
+    atributo[index] += 1
+    atributo[index_pontos] -= 1

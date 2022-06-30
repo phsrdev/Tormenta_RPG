@@ -1,6 +1,3 @@
-from atributos import aumentoatributo
-
-
 def continuar(esc=False):
     while esc is not True:
         escolha = input('Deseja continuar? (S/N) ').strip().upper()
@@ -19,6 +16,4 @@ def continuar(esc=False):
             elif escolha == 'N':
                 print('Encerrando...')
                 return quit()
-
-
 
