@@ -3,3 +3,9 @@
 .idea/inspectionProfiles/profiles_settings.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/Tormenta_RPG.iml
+*.pyc
+__pycache__/atributos.cpython-310.pyc
+__pycache__/funcoes.cpython-310.pyc
+__pycache__/atributos.cpython-310.pyc
+__pycache__/atributos.cpython-310.pyc
+__pycache__/funcoes.cpython-310.pyc

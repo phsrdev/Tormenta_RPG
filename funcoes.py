@@ -18,29 +18,19 @@ def continuar(esc=False):
                 return quit()
 
 
-def confirmar(atributo, index, esc=False):
-    while esc is not True:
-        escolha = input('Deseja Alterar? (S/N) ').strip().upper()
+def confirmar(atributo, index):
+    escolha = ''
+    while escolha not in 'S' or 'N':
+        print('Escreva apenas S ou N')
+        escolha = input('Deseja Alterar? (S/N)').strip().upper()
         if escolha == 'S':
             print('Continuando...')
-            x = input('Aumentar ou Diminuir? (+/- ou A/D) ').strip().upper()
-            if x in '+' or 'A':
+            escolha = input('Aumentar ou Diminuir? (+/- ou A/D) ').strip().upper()
+            if escolha in '+' or 'A':
                 aumenta_atributo(atributo, index, 6)
-                confirmar(atributo, index)
         elif escolha == 'N':
-            print('Voltando.')
-            return esc == True
-        while escolha not in 'S' or 'N':
-            print('Não entendi, escreva apenas S ou N')
-            escolha = input('Deseja Alterar? (S/N)').strip().upper()
-            if escolha == 'S':
-                print('Continuando...')
-                x = input('Aumentar ou Diminuir? (+/- ou A/D) ').strip().upper()
-                if x in '+' or 'A':
-                    aumenta_atributo(atributo, index, 6)
-            elif escolha == 'N':
-                print('Voltando')
-                return esc == True
+            print('Voltando')
+            break
 
 
 def mostra_atributo(nome, valor):
@@ -56,21 +46,26 @@ def criando_atributos(nome, valor):
         x = input('Qual atributo você deseja modificar? ').strip().upper()
         if x == 'F':
             print(f'No momento sua {nome[0]} esta em {valor[0]}')
-            aumenta_atributo(valor, 0, 6)
+            confirmar(valor, 0)
         elif x == 'D':
             print(f'No momento sua {nome[1]} esta em {valor[1]}')
+            confirmar(valor, 1)
         elif x == 'C':
             print(f'No momento sua {nome[2]} esta em {valor[2]}')
+            confirmar(valor, 2)
         elif x == 'I':
             print(f'No momento sua {nome[3]} esta em {valor[3]}')
+            confirmar(valor, 3)
         elif x == 'S':
             print(f'No momento sua {nome[4]} esta em {valor[4]}')
+            confirmar(valor, 4)
         elif x == 'CA':
             print(f'No momento sua {nome[5]} esta em {valor[5]}')
+            confirmar(valor, 5)
         elif x == 'P':
             print(f'No momento você possui {valor[6]} {nome[6]} qual atributo deseja modificar?')
-            print('Para Pontos(P), Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(C)')
-            x = input('Qual atributo você deseja modificar? ').strip().upper()
+            print('Para Mostrar atributos(M), Pontos(P), Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(C), Sair(Q)')
+            x = input('O que você deseja? ').strip().upper()
         elif x == 'M':
             mostra_atributo(nome, valor)
         elif x == 'Q':
