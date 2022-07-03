@@ -21,10 +21,8 @@ def continuar(esc=False):
 def confirmar(atributo, index):
     escolha = ''
     while escolha not in 'S' or 'N':
-        print('Escreva apenas S ou N')
         escolha = input('Deseja Alterar? (S/N)').strip().upper()
         if escolha == 'S':
-            print('Continuando...')
             escolha = input('Aumentar ou Diminuir? (+/- ou A/D) ').strip().upper()
             if escolha in '+' or 'A':
                 aumenta_atributo(atributo, index, 6)
@@ -39,10 +37,9 @@ def mostra_atributo(nome, valor):
 
 
 def criando_atributos(nome, valor):
-    o = True
-    while o == True or valor[6] > 0:
+    while valor[6] > 0:
         print(
-            'Para Mostrar atributos(M), Pontos(P), Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(C), Sair(Q)')
+            'Para Mostrar atributos(M), Pontos(P), Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(CA), Sair(Q)')
         x = input('Qual atributo você deseja modificar? ').strip().upper()
         if x == 'F':
             print(f'No momento sua {nome[0]} esta em {valor[0]}')
@@ -64,15 +61,12 @@ def criando_atributos(nome, valor):
             confirmar(valor, 5)
         elif x == 'P':
             print(f'No momento você possui {valor[6]} {nome[6]} qual atributo deseja modificar?')
-            print('Para Mostrar atributos(M), Pontos(P), Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(C), Sair(Q)')
+            print('Para Mostrar atributos(M), Pontos(P), Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(CA), Sair(Q)')
             x = input('O que você deseja? ').strip().upper()
         elif x == 'M':
             mostra_atributo(nome, valor)
         elif x == 'Q':
-            return o == False
-        elif x not in 'F' or 'D' or 'C' or 'I' or 'S' or 'CA':
-            print('Para Força(F), Destreza(D), Constituição(C), Inteligencia(I), Sabedoria(S), Carisma(C)')
-            x = input('Qual atributo você deseja modificar? ').strip().upper()
+            break
 
 
 def continuar_aumento(esc=False):
