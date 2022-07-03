@@ -96,18 +96,22 @@ def continuar_aumento(esc=False):
 
 
 def aumenta_atributo(atributo, index, index_pontos):
-    if 10 >= atributo[index] < 14 and atributo[index_pontos] > 0:
-        atributo[index] += 1
-        atributo[index_pontos] -= 1
-    elif 15 >= atributo[index] < 16 and atributo[index_pontos] > 1:
-        atributo[index] += 1
-        atributo[index_pontos] -= 2
-    elif 16 >= atributo[index] < 18 and atributo[index_pontos] > 2:
+    if 18 <= atributo[index]:
+        print('Atributo atingiu valor maximo.')
+        print(f'Ainda lhe restam {atributo[index_pontos]} pontos.')
+    elif 16 <= atributo[index] <= 18 and atributo[index_pontos] >= 3:
         atributo[index] += 1
         atributo[index_pontos] -= 3
-    elif atributo[index] >= 18:
-        print('Atributo atingiu valor maximo.')
+        print(f'Ainda lhe restam {atributo[index_pontos]} pontos.')
+    elif 14 <= atributo[index] and atributo[index_pontos] >= 2:
+        atributo[index] += 1
+        atributo[index_pontos] -= 2
+        print(f'Ainda lhe restam {atributo[index_pontos]} pontos.')
+    elif atributo[index] <14 and atributo[index_pontos] >= 1:
+        atributo[index] += 1
+        atributo[index_pontos] -= 1
+        print(f'Ainda lhe restam {atributo[index_pontos]} pontos.')
     else:
         print('Você não possui pontos suficientes para aumentar esse atributo.')
         print(f'No momento voce possui {atributo[index_pontos]} pontos.')
-    confirmar(atributo, index)
+
